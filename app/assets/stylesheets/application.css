@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+
+ul li input[type='text']{
+  display: none;
+}
+
+ul li.editable input[type='text']{
+  display: inline;
+}
+
+ul li.editable span{
+  display: none;
+}

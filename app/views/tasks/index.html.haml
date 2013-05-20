@@ -1,0 +1,14 @@
+.row
+  #main-view.span4.offset4
+    .page-header
+      %h4 My Tasks
+    %input.input-block-level(type="text" placeholder="Task Title")
+    %ul.nav.nav-list
+      %li.nav-header Tasks
+          
+%script(type="text/html" id="task-view-template")
+  %span
+    %i.icon-tasks
+    <%= title %>
+    %button.close &times
+  <input type='text' value='<%= title %>' class='input-block-level'>
