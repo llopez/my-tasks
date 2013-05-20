@@ -12,3 +12,7 @@
     <%= title %>
     %button.close &times
   <input type='text' value='<%= title %>' class='input-block-level'>
+
+%script(type="text/html" id="error-view-template")
+  %button.close(type="button" data-dismiss="alert") &times;
+  <%= error %>

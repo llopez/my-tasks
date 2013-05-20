@@ -10,7 +10,11 @@ class TaskModel extends Backbone.Model
       if err.length > 0
         err_str = _.reduce err, (m, v) ->
           m + v
-        alert err_str
+        error_view = new ErrorView({error: err_str})
+        jQuery('#main-view .page-header').after error_view.render().el
+        setTimeout(->
+          error_view.hide()
+        , 3000)
         err_str
 
 class TaskCollection extends Backbone.Collection
@@ -19,6 +23,15 @@ class TaskCollection extends Backbone.Collection
   
 task_collection = new TaskCollection()
 
+class ErrorView extends Backbone.View
+  className: 'alert fade in alert-error'
+  template: _.template(jQuery('#error-view-template').html())
+  render: ->
+    @$el.html @template(@options)
+    @
+  hide: ->
+    @$el.alert('close')
+    
 class TaskView extends Backbone.View
   tagName: 'li'
   template: _.template(jQuery('#task-view-template').html())
@@ -64,6 +77,6 @@ class MainView extends Backbone.View
       @$input.val('')
   addTask: (task_model) ->
     task_view = new TaskView({model: task_model})
-    @$list.append task_view.render().el    
+    @$list.append task_view.render().el
 
 new MainView()
