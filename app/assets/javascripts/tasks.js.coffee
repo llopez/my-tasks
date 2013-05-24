@@ -25,7 +25,7 @@ task_collection = new TaskCollection()
 
 class ErrorView extends Backbone.View
   className: 'alert fade in alert-error'
-  template: _.template(jQuery('#error-view-template').html())
+  template: JST['templates/error']
   render: ->
     @$el.html @template(@options)
     @
@@ -34,7 +34,7 @@ class ErrorView extends Backbone.View
     
 class TaskView extends Backbone.View
   tagName: 'li'
-  template: _.template(jQuery('#task-view-template').html())
+  template: JST['templates/task']
   initialize: ->
     @listenTo(@model, 'destroy', @remove)
     @listenTo(@model, 'change', @render)

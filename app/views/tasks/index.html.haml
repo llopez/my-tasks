@@ -5,14 +5,3 @@
     %input.input-block-level(type="text" placeholder="Task Title")
     %ul.nav.nav-list
       %li.nav-header Tasks
-          
-%script(type="text/html" id="task-view-template")
-  %span
-    %i.icon-tasks
-    <%= title %>
-    %button.close &times
-  <input type='text' value='<%= title %>' class='input-block-level'>
-
-%script(type="text/html" id="error-view-template")
-  %button.close(type="button" data-dismiss="alert") &times;
-  <%= error %>
