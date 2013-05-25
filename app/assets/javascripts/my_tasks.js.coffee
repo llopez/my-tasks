@@ -3,9 +3,9 @@ window.MyTasks =
   Collections: {}
   Views: {}
   Routers: {}
-  init: ->
-    tasks = new MyTasks.Collections.Tasks()
-    new MyTasks.Views.Index collection: tasks
+  init: ->    
+    new MyTasks.Routers.Tasks
+    Backbone.history.start()
     
 $(document).ready ->
   MyTasks.init()
