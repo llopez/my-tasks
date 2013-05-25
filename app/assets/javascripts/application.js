@@ -15,5 +15,5 @@
 //= require twitter/bootstrap
 //= require underscore
 //= require backbone
-//= require_directory ./templates
+//= require_tree ../templates
 //= require tasks
